@@ -1,4 +1,4 @@
-package com.kollus;
+package com.kollus.test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kollus.live_jwt.LiveJwtGenerator;

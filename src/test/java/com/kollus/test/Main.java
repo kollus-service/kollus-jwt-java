@@ -1,4 +1,4 @@
-package com.kollus;
+package com.kollus.test;
 
 import com.kollus.jwt.JwtGenerator;
 import com.kollus.jwt.Mc;
