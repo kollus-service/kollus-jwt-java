@@ -1,5 +1,6 @@
 package com.kollus.test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kollus.jwt.JwtGenerator;
 import com.kollus.jwt.Mc;
 import com.kollus.jwt.McGenerator;
@@ -8,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class YanadooTest
 {
-    public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeyException{
+    public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeyException, JsonProcessingException {
 
 
         JwtGenerator jwtGenerator = new JwtGenerator();
