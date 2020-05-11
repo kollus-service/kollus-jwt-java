@@ -1,11 +1,12 @@
-package com.kollus.jwt;
+package com.kollus.vod;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.kollus.jwt.Payload;
 
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class JwtPayload {
+public class VodPayload extends Payload {
     private String cuid;
     private String awtc;
     private VideoWatermarkingCodePolicy video_watermarking_code_policy;
@@ -13,7 +14,7 @@ public class JwtPayload {
     private PcSkin pc_skin;
     private List<Mc> mc;
 
-    public JwtPayload(){}
+    public VodPayload(){}
 
     public String getCuid() {
         return cuid;

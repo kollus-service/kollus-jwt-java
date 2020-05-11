@@ -1,6 +1,7 @@
-package com.kollus.jwt;
+package com.kollus.vod;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.kollus.vod.Cdn;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Live {

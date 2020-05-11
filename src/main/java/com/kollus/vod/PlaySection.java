@@ -1,4 +1,4 @@
-package com.kollus.jwt;
+package com.kollus.vod;
 
 public class PlaySection {
     int start_time;

@@ -1,10 +1,6 @@
 package com.kollus.multidrm.token;
 
 import com.kollus.multidrm.tokenrule.DrmTypes;
-import org.apache.commons.codec.binary.Base64;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class TokenPayload {
     /***

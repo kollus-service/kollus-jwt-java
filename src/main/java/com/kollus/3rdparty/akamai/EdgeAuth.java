@@ -97,7 +97,7 @@ public class EdgeAuth {
             char fieldDelimiter,
             char aclDelimiter,
             boolean escapeEarly,
-            boolean verbose) throws EdgeAuthException
+            boolean verbose) throws com.akamai.edgeauth.EdgeAuthException
     {
         this.setTokenType(tokenType);
         this.setTokenName(tokenName);
@@ -124,7 +124,7 @@ public class EdgeAuth {
      * @return joined string with delimiter
      * @throws EdgeAuthException EdgeAuthException
      */
-    public static String join(char delimiter, String[] lists) throws EdgeAuthException {
+    public static String join(char delimiter, String[] lists) throws com.akamai.edgeauth.EdgeAuthException {
         try {
             StringBuilder sb = new StringBuilder();
             for (String list : lists) {
@@ -133,7 +133,7 @@ public class EdgeAuth {
             }
             return sb.toString();
         } catch(Exception e) {
-            throw new EdgeAuthException(e.getMessage());
+            throw new com.akamai.edgeauth.EdgeAuthException(e.getMessage());
         }
     }
 
@@ -144,7 +144,7 @@ public class EdgeAuth {
      * @return escaped string up to {@value escapeEarly}.
      * @throws EdgeAuthException EdgeAuthException
      */
-    private String escapeEarly(final String text) throws EdgeAuthException {
+    private String escapeEarly(final String text) throws com.akamai.edgeauth.EdgeAuthException {
         if (this.escapeEarly == true) {
             try {
                 StringBuilder newText = new StringBuilder(URLEncoder.encode(text, "UTF-8"));
@@ -159,7 +159,7 @@ public class EdgeAuth {
             } catch (UnsupportedEncodingException e) {
                 return text;
             } catch (Exception e) {
-                throw new EdgeAuthException(e.getMessage());
+                throw new com.akamai.edgeauth.EdgeAuthException(e.getMessage());
             }
         } else {
             return text;
@@ -175,14 +175,14 @@ public class EdgeAuth {
      * @return authorization token string
      * @throws EdgeAuthException EdgeAuthException
      */
-    private String generateToken(String path, boolean isUrl) throws EdgeAuthException {
+    private String generateToken(String path, boolean isUrl) throws com.akamai.edgeauth.EdgeAuthException {
         Long startTime = this.startTime;
         Long endTime = this.endTime;
 
         if (startTime == EdgeAuth.NOW) {
             startTime = Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis() / 1000L;
         } else if(startTime != null && startTime < 0) {
-            throw new EdgeAuthException("startTime must be ( > 0 )");
+            throw new com.akamai.edgeauth.EdgeAuthException("startTime must be ( > 0 )");
         }
 
         if (endTime == null) {
@@ -194,14 +194,14 @@ public class EdgeAuth {
                     endTime = startTime + this.windowSeconds;
                 }
             } else {
-                throw new EdgeAuthException("You must provide an expiration time or a duration window ( > 0 )");
+                throw new com.akamai.edgeauth.EdgeAuthException("You must provide an expiration time or a duration window ( > 0 )");
             }
         } else if(endTime <= 0) {
-            throw new EdgeAuthException("endTime must be ( > 0 )");
+            throw new com.akamai.edgeauth.EdgeAuthException("endTime must be ( > 0 )");
         }
 
         if (startTime != null && (endTime <= startTime)) {
-            throw new EdgeAuthException("Token will have already expired.");
+            throw new com.akamai.edgeauth.EdgeAuthException("Token will have already expired.");
         }
 
         if (this.verbose) {
@@ -284,9 +284,9 @@ public class EdgeAuth {
             return newToken.toString() + "hmac=" +
                     String.format("%0" + (2*hmac.getMacLength()) +  "x", new BigInteger(1, hmacBytes));
         } catch (NoSuchAlgorithmException e) {
-            throw new EdgeAuthException(e.toString());
+            throw new com.akamai.edgeauth.EdgeAuthException(e.toString());
         } catch (InvalidKeyException e) {
-            throw new EdgeAuthException(e.toString());
+            throw new com.akamai.edgeauth.EdgeAuthException(e.toString());
         }
     }
 
@@ -297,9 +297,9 @@ public class EdgeAuth {
      * @return authorization token string
      * @throws EdgeAuthException EdgeAuthException
      */
-    public String generateURLToken(String url) throws EdgeAuthException {
+    public String generateURLToken(String url) throws com.akamai.edgeauth.EdgeAuthException {
         if (url == null || url == "") {
-            throw new EdgeAuthException("You must provide a URL.");
+            throw new com.akamai.edgeauth.EdgeAuthException("You must provide a URL.");
         }
         return generateToken(url, true);
     }
@@ -311,9 +311,9 @@ public class EdgeAuth {
      * @return authorization token string
      * @throws EdgeAuthException EdgeAuthException
      */
-    public String generateACLToken(String acl) throws EdgeAuthException {
+    public String generateACLToken(String acl) throws com.akamai.edgeauth.EdgeAuthException {
         if (acl == null || acl == "") {
-            throw new EdgeAuthException("You must provide an ACL.");
+            throw new com.akamai.edgeauth.EdgeAuthException("You must provide an ACL.");
         }
         return generateToken(acl, false);
     }
@@ -325,9 +325,9 @@ public class EdgeAuth {
      * @return authorization token string
      * @throws EdgeAuthException EdgeAuthException
      */
-    public String generateACLToken(String[] acl) throws EdgeAuthException {
+    public String generateACLToken(String[] acl) throws com.akamai.edgeauth.EdgeAuthException {
         if (acl == null || acl.length == 0) {
-            throw new EdgeAuthException("You must provide an ACL.");
+            throw new com.akamai.edgeauth.EdgeAuthException("You must provide an ACL.");
         }
 
         String newAcl = join(this.getAclDelimiter(), acl);
@@ -345,9 +345,9 @@ public class EdgeAuth {
      * @param tokenName tokenName
      * @throws EdgeAuthException EdgeAuthException
      */
-    public void setTokenName(String tokenName) throws EdgeAuthException {
+    public void setTokenName(String tokenName) throws com.akamai.edgeauth.EdgeAuthException {
         if (tokenName == null || tokenName == "") {
-            throw new EdgeAuthException("You must provide a token name.");
+            throw new com.akamai.edgeauth.EdgeAuthException("You must provide a token name.");
         }
         this.tokenName = tokenName;
     }
@@ -356,9 +356,9 @@ public class EdgeAuth {
      * @param key key
      * @throws EdgeAuthException EdgeAuthException
      */
-    public void setKey(String key) throws EdgeAuthException {
+    public void setKey(String key) throws com.akamai.edgeauth.EdgeAuthException {
         if (key == null || key == "") {
-            throw new EdgeAuthException("You must provide a secret in order to generate a new token.");
+            throw new com.akamai.edgeauth.EdgeAuthException("You must provide a secret in order to generate a new token.");
         }
         this.key = key;
     }
@@ -367,7 +367,7 @@ public class EdgeAuth {
      * @param algorithm algorithm
      * @throws EdgeAuthException EdgeAuthException
      */
-    public void setAlgorithm(String algorithm) throws EdgeAuthException {
+    public void setAlgorithm(String algorithm) throws com.akamai.edgeauth.EdgeAuthException {
         if (algorithm.equalsIgnoreCase("sha256"))
             this.algorithm = "HmacSHA256";
         else if (algorithm.equalsIgnoreCase("sha1"))
@@ -375,7 +375,7 @@ public class EdgeAuth {
         else if (algorithm.equalsIgnoreCase("md5"))
             this.algorithm = "HmacMD5";
         else
-            throw new EdgeAuthException("Unknown Algorithm");
+            throw new com.akamai.edgeauth.EdgeAuthException("Unknown Algorithm");
     }
 
     /**

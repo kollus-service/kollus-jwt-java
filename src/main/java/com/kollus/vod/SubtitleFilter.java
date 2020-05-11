@@ -1,4 +1,4 @@
-package com.kollus.jwt;
+package com.kollus.vod;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;

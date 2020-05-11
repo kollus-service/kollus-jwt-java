@@ -207,8 +207,8 @@ public class EdgeAuthBuilder {
      * @return {@link EdgeAuth}
      * @throws EdgeAuthException EdgeAuthException
      */
-    public EdgeAuth build() throws EdgeAuthException {
-        return new EdgeAuth(
+    public com.akamai.edgeauth.EdgeAuth build() throws com.akamai.edgeauth.EdgeAuthException {
+        return new com.akamai.edgeauth.EdgeAuth(
                 tokenType, tokenName,
                 key, algorithm, salt,
                 ip, payload, sessionId,

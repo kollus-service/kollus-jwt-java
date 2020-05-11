@@ -1,4 +1,4 @@
-package com.kollus.live_jwt;
+package com.kollus.live;
 
 public class ChattingPolicy {
     private boolean is_visible;

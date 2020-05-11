@@ -1,8 +1,8 @@
-package com.kollus.live_jwt;
+package com.kollus.live;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.kollus.jwt.VideoWatermarkingCodePolicy;
+import com.kollus.vod.VideoWatermarkingCodePolicy;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JwtPayload {

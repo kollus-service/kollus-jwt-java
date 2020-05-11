@@ -1,4 +1,4 @@
-package com.kollus.jwt;
+package com.kollus.vod;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

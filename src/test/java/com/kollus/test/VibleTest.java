@@ -1,9 +1,9 @@
 package com.kollus.test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.kollus.jwt.JwtGenerator;
-import com.kollus.jwt.Mc;
-import com.kollus.jwt.McGenerator;
+import com.kollus.vod.JwtGenerator;
+import com.kollus.vod.Mc;
+import com.kollus.vod.McGenerator;
 import com.kollus.multidrm.token.CustomDataGenerator;
 import com.kollus.multidrm.token.TokenGenerator;
 import com.kollus.multidrm.tokenrule.DrmTypes;

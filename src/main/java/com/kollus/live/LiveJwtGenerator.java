@@ -1,9 +1,9 @@
-package com.kollus.live_jwt;
+package com.kollus.live;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kollus.jwt.JwtUtil;
-import com.kollus.jwt.VideoWatermarkingCodePolicy;
+import com.kollus.vod.VideoWatermarkingCodePolicy;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;

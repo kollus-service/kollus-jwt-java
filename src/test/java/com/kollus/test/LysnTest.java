@@ -1,21 +1,13 @@
 package com.kollus.test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.kollus.jwt.JwtGenerator;
-import com.kollus.jwt.Mc;
-import com.kollus.jwt.McGenerator;
+import com.kollus.vod.JwtGenerator;
+import com.kollus.vod.Mc;
+import com.kollus.vod.McGenerator;
 import com.kollus.multidrm.token.CustomDataGenerator;
 import com.kollus.multidrm.token.TokenGenerator;
 import com.kollus.multidrm.tokenrule.DrmTypes;
 import com.kollus.multidrm.tokenrule.TokenRuleGenerator;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 public class LysnTest {
