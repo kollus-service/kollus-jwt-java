@@ -2,12 +2,12 @@ package com.kollus.jwt;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kollus.live.LivePayload;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
-public class Generator<T extends Payload> {
-
+public class Generator<T extends Payload> implements IGenerator {
     protected String secret_key;
     protected T payload;
     public String generate() throws JsonProcessingException, NoSuchAlgorithmException, InvalidKeyException {
@@ -18,4 +18,5 @@ public class Generator<T extends Payload> {
         ObjectMapper mapper = new ObjectMapper();
         return  mapper.writeValueAsString(this.payload);
     }
+
 }

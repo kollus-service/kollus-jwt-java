@@ -2,6 +2,9 @@ package com.kollus.vod;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.kollus.jwt.Payload;
+import com.kollus.vod.drm.VideoWatermarkingCodePolicy;
+import com.kollus.vod.mediacontent.Mc;
+import com.kollus.vod.player.PcSkin;
 
 import java.util.List;
 
