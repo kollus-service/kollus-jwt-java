@@ -9,14 +9,12 @@ import com.kollus.vod.player.PcSkin;
 import java.util.ArrayList;
 
 public class VodTokenGenerator extends Generator<VodPayload> {
-    
-    private String secret_key;
 
     public VodTokenGenerator() {
         this.payload = new VodPayload();
     }
 
-    public VodTokenGenerator secret_key(String secret_key){
+    public VodTokenGenerator secret_key(String secret_key) {
         this.secret_key = secret_key;
         return this;
     }
