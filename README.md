@@ -1,3 +1,6 @@
+> ⚠️ **이 저장소는 더 이상 관리되지 않습니다.**
+> 새 저장소로 이전되었습니다: https://github.com/kollus-service/kollus-sample-java-2/tree/master/spring#jwt-%EB%B0%9C%EA%B8%89-api
+
 ### Kollus Play Url Creator for Java
 
 ---
